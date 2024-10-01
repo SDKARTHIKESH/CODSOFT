@@ -13,23 +13,26 @@ class Main
             @Override
             public void run() 
             {
-                if(i[0]<Q.length)
+                while(i[0]<Q.length)
                 {
                     System.out.println(Q[i[0]]);
-                    System.out.print("\n\nEnter your option : ");
+                    System.out.print("Enter your option : ");
                     char ch = sc.next().charAt(0);
                     if((i[0]==0 && ch=='c') ||(i[0]==1 && ch=='d') ||(i[0]==2 && ch=='b') ||(i[0]==3 && ch=='b') ||(i[0]==4 && ch=='a'))
                     {
                         score[0]+=10;
-                        System.out.printf("\n\nCorrect Answer!!!\n\nCurrent Score : %d\n\n",score[0]);
+                        System.out.printf("\nCorrect Answer!!!\n\nCurrent Score : %d\n\n",score[0]);
+                        i[0]++;
+                        continue;
                     }
                     else
                     {
-                        System.out.printf("\n\nWrong Answer!!!\n\nCurrent Score : %d\n\n",score[0]);
+                        System.out.printf("\nWrong Answer!!!\n\nCurrent Score : %d\n\n",score[0]);
+                        i[0]++;
+                        continue;
                     }
-                    i[0]++;
                 }
-                else
+                if(i[0]>=Q.length)
                 {
                     timer.cancel();
                     System.out.print("Game Over!!!");
