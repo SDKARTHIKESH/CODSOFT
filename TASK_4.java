@@ -11,7 +11,7 @@ class Quiz extends TimerTask
     {
         this.timer = timer;
     }
-    public static int i=0,score=0;
+    public static int i=0,score=0,correct_ans=0,wrong_ans=0;
     public void run()
     {
         if(i>0 && i!=5) System.out.print("Time over. Moving to next question!!!\n\n");
@@ -22,17 +22,17 @@ class Quiz extends TimerTask
         
         if((i==0 && c.equals("c")) || (i==1 && c.equals("d")) || (i==2 && c.equals("b")) || (i==3 && c.equals("b")) || (i==4 && c.equals("a")) ) 
         {
-            score+=10; i++;
+            score+=10; i++; correct_ans++;
             System.out.printf("\nCorrect Answer!!!\n\nCurrent Score : %d\n\n",score);
         }
         else if(!((i==0 && c.equals("c")) || (i==1 && c.equals("d")) || (i==2 && c.equals("b")) || (i==3 && c.equals("b")) || (i==4 && c.equals("a"))))
         {
-            System.out.print("\nWrong Answer!!!\n\n"); i++;
+            System.out.print("\nWrong Answer!!!\n\n"); i++; wrong_ans++;
         }
         
         if(i==5) 
         {
-            System.out.printf("Final Score: %d\n",score);
+            System.out.printf("Final Score: %d\nNo of Correct Answers: %d\nNo of Wrong Answers: %d",score,correct_ans,wrong_ans);
             timer.cancel();
         }
         
